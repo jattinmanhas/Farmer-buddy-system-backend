@@ -4,7 +4,6 @@ import morgan from 'morgan';
 import colors from 'colors';
 import { connectdb } from './config/db.js';
 import authRouter from './Routes/authRoute.js'
-
 //configure env
 dotenv.config();
 //connect to the database
