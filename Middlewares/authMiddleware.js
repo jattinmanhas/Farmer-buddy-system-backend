@@ -27,3 +27,17 @@ export const protect = async(req, res, next) =>{
     }
 
 }
+
+export const isAdmin = async(req, res, next) =>{
+    try{
+        const user = await Users.findOne(req.user._id);
+        if(user.role !== 1){
+            return res.status(401).json({message: "UNAUTHORIZED ACCESS"})
+        }else{
+            next();
+        }
+    }catch(error){
+        console.log()
+        res.status(501).json({message: error})
+    }
+}
